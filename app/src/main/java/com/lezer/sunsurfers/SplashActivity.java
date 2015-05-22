@@ -2,11 +2,8 @@ package com.lezer.sunsurfers;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.content.pm.ActivityInfo;
-import android.content.res.Configuration;
 import android.os.Bundle;
 import android.os.Handler;
-import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
@@ -47,13 +44,10 @@ public class SplashActivity extends Activity {
         }
     }
 
-    @Override
+  /*  @Override
     public void onConfigurationChanged(Configuration newConfig) {
         super.onConfigurationChanged(newConfig);
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
-    }
+    }*/
 
-    public void onAnim(View v) {
-        im.startAnimation(animSplash);
-    }
 }
