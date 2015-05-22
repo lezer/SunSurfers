@@ -17,7 +17,7 @@ import android.widget.ProgressBar;
  */
 public class SplashActivity extends Activity {
 
-    private static int SPLASH_SCREEN_TIMEOUT = 5000;
+    private static int SPLASH_SCREEN_TIMEOUT = 2500;
     ImageView im;
     Animation animSplash;
     ProgressBar progressBar;
@@ -35,7 +35,7 @@ public class SplashActivity extends Activity {
 
         while (!b) {
             progressBar.setProgress(mProgress);
-            mProgress--;
+            mProgress++;
             b = new Handler().postDelayed(new Runnable() {
                 @Override
                 public void run() {
