@@ -43,6 +43,7 @@ public class SplashActivity extends Activity {
                     startActivity(intent);
                     finish();
                 }
+                
             }, SPLASH_SCREEN_TIMEOUT);
         }
     }
