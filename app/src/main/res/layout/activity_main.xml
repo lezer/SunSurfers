@@ -7,8 +7,4 @@
     android:background="#E0E0E0"
     tools:context=".MainActivity">
 
-    <include
-        android:id="@+id/toolbar"
-        layout="@layout/toolbar"/>
-
 </RelativeLayout>

@@ -4,7 +4,7 @@
     <style name="AppTheme" parent="AppTheme.Base" />
         <!-- Customize your theme here. -->
     <style name="AppTheme.Base" parent="Theme.AppCompat">
-        <item name="colorPrimary">@color/primary_material_light</item>
+        <item name="colorPrimary">@color/primary_material_dark</item>
         <item name="colorPrimaryDark">@color/primary_material_dark</item>
         <item name="android:windowNoTitle">true</item>
         <item name="windowActionBar">false</item>
