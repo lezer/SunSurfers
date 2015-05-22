@@ -16,7 +16,6 @@
         android:maxHeight="900dp"
         android:maxWidth="900dp"
         style="?android:attr/progressBarStyleLarge" />
-
     <ImageView
         android:id="@+id/animMan"
         android:layout_width="wrap_content"
