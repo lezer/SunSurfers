@@ -19,6 +19,9 @@ import com.mikepenz.materialdrawer.model.interfaces.IProfile;
 public class MainActivity extends AppCompatActivity {
 
     private Drawer.Result drawerResult;
+    private PrimaryDrawerItem drawerItem_chat;
+    private SecondaryDrawerItem drawerItem_map;
+    private SecondaryDrawerItem drawerItem_adt;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,6 +60,7 @@ public class MainActivity extends AppCompatActivity {
                 .withOnDrawerItemClickListener(new Drawer.OnDrawerItemClickListener() {
                     @Override
                     public void onItemClick(AdapterView<?> adapterView, View view, int i, long l, IDrawerItem iDrawerItem) {
+
                         Intent intent = new Intent(MainActivity.this, ChatActivity.class);
                         startActivity(intent);
                     }
@@ -65,13 +69,13 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private IDrawerItem[] initDrawerItems() {
-        return new IDrawerItem[]{new PrimaryDrawerItem()
+        return new IDrawerItem[]{drawerItem_chat = new PrimaryDrawerItem()
                 .withName(R.string.draw_chat)
                 .withIcon(R.drawable.ic_chat_black_18dp),
-                new SecondaryDrawerItem()
+                drawerItem_map = new SecondaryDrawerItem()
                         .withName(R.string.draw_map)
                         .withIcon(R.drawable.ic_map_black_18dp),
-                new SecondaryDrawerItem()
+                drawerItem_adt = new SecondaryDrawerItem()
                         .withName(R.string.draw_adt)
                         .withIcon(R.drawable.ic_forum_black_18dp)};
     }
