@@ -10,6 +10,7 @@ import android.widget.AdapterView;
 
 import com.mikepenz.materialdrawer.Drawer;
 import com.mikepenz.materialdrawer.accountswitcher.AccountHeader;
+import com.mikepenz.materialdrawer.model.DividerDrawerItem;
 import com.mikepenz.materialdrawer.model.PrimaryDrawerItem;
 import com.mikepenz.materialdrawer.model.ProfileDrawerItem;
 import com.mikepenz.materialdrawer.model.SecondaryDrawerItem;
@@ -21,9 +22,10 @@ public class MainActivity extends AppCompatActivity {
 
     private String TAG = "lezer";
     private Drawer.Result drawerResult;
-    public int CHAT = 1;
-    public int MAP = 2;
-    public int FORUM = 3;
+    public int CHAT = 2;
+    public int MAP = 3;
+    public int FORUM = 4;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,15 +67,15 @@ public class MainActivity extends AppCompatActivity {
                         Log.i(TAG, iDrawerItem.getIdentifier() + "");
                         Intent intentChat, intentMap, intentForum;
                         switch (iDrawerItem.getIdentifier()) {
-                            case 1:
+                            case 2:
                                 intentChat = new Intent(MainActivity.this, ChatActivity.class);
                                 startActivity(intentChat);
                                 break;
-                            case 2:
+                            case 3:
                                 intentMap = new Intent(MainActivity.this, MapActivity.class);
                                 startActivity(intentMap);
                                 break;
-                            case 3:
+                            case 4:
                                 intentForum = new Intent(MainActivity.this, ForumActivity.class);
                                 startActivity(intentForum);
                                 break;
@@ -95,7 +97,12 @@ public class MainActivity extends AppCompatActivity {
                 new SecondaryDrawerItem()
                         .withName(R.string.draw_adt)
                         .withIdentifier(FORUM)
-                        .withIcon(R.drawable.ic_forum_black_18dp)};
+                        .withIcon(R.drawable.ic_forum_black_18dp),
+                new DividerDrawerItem(),
+                new SecondaryDrawerItem()
+                    .withName(R.string.draw_settings)
+                    .withIcon(R.drawable.ic_settings_black_18dp)
+        };
     }
 
     private AccountHeader.Result createAccHeader() {
@@ -107,7 +114,7 @@ public class MainActivity extends AppCompatActivity {
 
         return new AccountHeader()
                 .withActivity(this)
-                .withHeaderBackground(R.drawable.background_material4)
+                .withHeaderBackground(R.drawable.background_material)
                 .addProfiles(profile)
                 .build();
     }
