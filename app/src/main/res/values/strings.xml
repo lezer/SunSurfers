@@ -7,4 +7,5 @@
     <string name="draw_chat">Чат</string>
     <string name="draw_map">Карта</string>
     <string name="draw_adt">Объявления</string>
+    <string name="title_activity_chat">ChatActivity</string>
 </resources>
