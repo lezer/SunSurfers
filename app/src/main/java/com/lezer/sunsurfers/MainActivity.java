@@ -39,7 +39,8 @@ public class MainActivity extends AppCompatActivity {
                 .withDisplayBelowToolbar(true)
                 .addDrawerItems(
                         new PrimaryDrawerItem()
-                                .withName(R.string.draw_chat),
+                                .withName(R.string.draw_chat)
+                                .withIcon(R.drawable),
                         new SecondaryDrawerItem()
                                 .withName(R.string.draw_map),
                         new SecondaryDrawerItem()
