@@ -1,10 +1,10 @@
 package com.lezer.sunsurfers;
 
+import android.app.Activity;
 import android.os.Bundle;
-import android.support.v7.app.ActionBarActivity;
 
 
-public class ChatActivity extends ActionBarActivity {
+public class ChatActivity extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 
@@ -18,6 +19,7 @@ import com.mikepenz.materialdrawer.model.interfaces.IProfile;
 
 public class MainActivity extends AppCompatActivity {
 
+    private String TAG = "lezer";
     private Drawer.Result drawerResult;
     private PrimaryDrawerItem drawerItem_chat;
     private SecondaryDrawerItem drawerItem_map;
@@ -60,7 +62,7 @@ public class MainActivity extends AppCompatActivity {
                 .withOnDrawerItemClickListener(new Drawer.OnDrawerItemClickListener() {
                     @Override
                     public void onItemClick(AdapterView<?> adapterView, View view, int i, long l, IDrawerItem iDrawerItem) {
-
+                        Log.i(TAG, view.toString() + "_"+ i + "_" + l + "_" + iDrawerItem.toString());
                         Intent intent = new Intent(MainActivity.this, ChatActivity.class);
                         startActivity(intent);
                     }

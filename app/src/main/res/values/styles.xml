@@ -4,8 +4,8 @@
     <style name="AppTheme" parent="AppTheme.Base" />
         <!-- Customize your theme here. -->
     <style name="AppTheme.Base" parent="Theme.AppCompat">
-        <item name="colorPrimary">@color/primary_material_dark</item>
-        <item name="colorPrimaryDark">@color/primary_material_dark</item>
+        <item name="colorPrimary">@color/yellow200</item>
+        <item name="colorPrimaryDark">@color/yellow600</item>
         <item name="windowNoTitle">true</item>
         <item name="windowActionBar">false</item>
 
