@@ -3,4 +3,8 @@
 
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
+
+    <string name="draw_chat">Чат</string>
+    <string name="draw_map">Карта</string>
+    <string name="draw_adt">Объявления</string>
 </resources>
