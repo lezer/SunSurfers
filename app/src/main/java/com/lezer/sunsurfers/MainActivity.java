@@ -6,7 +6,6 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v4.content.res.ResourcesCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 
@@ -85,9 +84,26 @@ public class MainActivity extends AppCompatActivity {
                 .withOnDrawerItemClickListener(new Drawer.OnDrawerItemClickListener() {
                     @Override
                     public void onItemClick(AdapterView<?> adapterView, View view, int i, long l, IDrawerItem iDrawerItem) {
-                        Log.i(TAG, iDrawerItem.getIdentifier() + "");
 
                         transaction = manager.beginTransaction();
+
+                        if (manager.getFragments() != null) {
+                            if (manager.findFragmentByTag("ChatFragmentTag") != null) {
+                                transaction.remove(chatFragment);
+                            }
+
+                            if (manager.findFragmentByTag("ForumFragmentTag") != null) {
+                                transaction.remove(forumFragment);
+                            }
+
+                            if (manager.findFragmentByTag("MapFragmentTag") != null) {
+                                transaction.remove(mapFragment);
+                            }
+
+                            if (manager.findFragmentByTag("SettingsFragmentTag") != null) {
+                                transaction.remove(settingsFragment);
+                            }
+                        }
 
                         switch (iDrawerItem.getIdentifier()) {
                             case 2:
