@@ -2,6 +2,7 @@ package com.lezer.sunsurfers;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.content.res.ResourcesCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
@@ -25,6 +26,7 @@ public class MainActivity extends AppCompatActivity {
     public int CHAT = 2;
     public int MAP = 3;
     public int FORUM = 4;
+    public int SETTINGS = 5;
 
 
     @Override
@@ -79,6 +81,9 @@ public class MainActivity extends AppCompatActivity {
                                 intentForum = new Intent(MainActivity.this, ForumActivity.class);
                                 startActivity(intentForum);
                                 break;
+                            case 5:
+
+                                break;
                         }
                     }
                 })
@@ -102,6 +107,7 @@ public class MainActivity extends AppCompatActivity {
                 new SecondaryDrawerItem()
                     .withName(R.string.draw_settings)
                     .withIcon(R.drawable.ic_settings_black_18dp)
+                .withIdentifier(SETTINGS)
         };
     }
 
@@ -110,7 +116,7 @@ public class MainActivity extends AppCompatActivity {
         IProfile profile = new ProfileDrawerItem()
                 .withName("Lezer")
                 .withEmail("lezerlezerlezer@gmail.com")
-                .withIcon(getResources().getDrawable(R.drawable.anim_man));
+                .withIcon(ResourcesCompat.getDrawable(getResources(), R.drawable.anim_man, null));
 
         return new AccountHeader()
                 .withActivity(this)

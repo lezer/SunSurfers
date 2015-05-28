@@ -8,4 +8,7 @@
     <string name="draw_map">Карта</string>
     <string name="draw_adt">Объявления</string>
     <string name="draw_settings">Настройки</string>
+
+<!-- TODO: Remove or change this placeholder text -->
+    <string name="settings_fragment">Настройки</string>
 </resources>
