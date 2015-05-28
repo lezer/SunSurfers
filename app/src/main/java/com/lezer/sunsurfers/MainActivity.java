@@ -1,7 +1,8 @@
 package com.lezer.sunsurfers;
 
-import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.content.res.ResourcesCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -9,6 +10,10 @@ import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 
+import com.lezer.sunsurfers.fragments.ChatFragment;
+import com.lezer.sunsurfers.fragments.ForumFragment;
+import com.lezer.sunsurfers.fragments.MapFragment;
+import com.lezer.sunsurfers.fragments.SettingsFragment;
 import com.mikepenz.materialdrawer.Drawer;
 import com.mikepenz.materialdrawer.accountswitcher.AccountHeader;
 import com.mikepenz.materialdrawer.model.DividerDrawerItem;
@@ -24,10 +29,17 @@ public class MainActivity extends AppCompatActivity {
     private String TAG = "lezer";
     private Drawer.Result drawerResult;
     public int CHAT = 2;
-    public int MAP = 3;
-    public int FORUM = 4;
+    public int FORUM = 3;
+    public int MAP = 4;
     public int SETTINGS = 5;
 
+    private ChatFragment chatFragment;
+    private ForumFragment forumFragment;
+    private MapFragment mapFragment;
+    private SettingsFragment settingsFragment;
+
+    private FragmentManager manager;
+    private FragmentTransaction transaction;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +51,13 @@ public class MainActivity extends AppCompatActivity {
             setSupportActionBar(toolbar);
         }
         initNavDrawer(toolbar);
+
+        manager = getSupportFragmentManager();
+
+        chatFragment = new ChatFragment();
+        forumFragment = new ForumFragment();
+        mapFragment = new MapFragment();
+        settingsFragment = new SettingsFragment();
     }
 
     @Override
@@ -67,24 +86,32 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void onItemClick(AdapterView<?> adapterView, View view, int i, long l, IDrawerItem iDrawerItem) {
                         Log.i(TAG, iDrawerItem.getIdentifier() + "");
-                        Intent intentChat, intentMap, intentForum;
+
+                        transaction = manager.beginTransaction();
+
                         switch (iDrawerItem.getIdentifier()) {
                             case 2:
-                                intentChat = new Intent(MainActivity.this, ChatActivity.class);
-                                startActivity(intentChat);
+                                if (manager.findFragmentByTag("ChatFragmentTag") == null) {
+                                    transaction.add(R.id.container, chatFragment, chatFragment.TAG);
+                                }
                                 break;
                             case 3:
-                                intentMap = new Intent(MainActivity.this, MapActivity.class);
-                                startActivity(intentMap);
+                                if (manager.findFragmentByTag("ForumFragmentTag") == null) {
+                                    transaction.add(R.id.container, forumFragment, forumFragment.TAG);
+                                }
                                 break;
                             case 4:
-                                intentForum = new Intent(MainActivity.this, ForumActivity.class);
-                                startActivity(intentForum);
+                                if (manager.findFragmentByTag("MapFragmentTag") == null) {
+                                    transaction.add(R.id.container, mapFragment, mapFragment.TAG);
+                                }
                                 break;
                             case 5:
-
+                                if (manager.findFragmentByTag("SettingsFragmentTag") == null) {
+                                    transaction.add(R.id.container, settingsFragment, settingsFragment.TAG);
+                                }
                                 break;
                         }
+                        transaction.commit();
                     }
                 })
                 .build();
